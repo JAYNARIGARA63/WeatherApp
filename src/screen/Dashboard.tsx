@@ -48,6 +48,7 @@ const Dashboard = () => {
             maxTemp: Math.round(data.main.temp_max) + '°C',
             humidity: data.main.humidity + '%',
             icon: `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
+            city: data.name,
           });
         }
         setLoading(false);
@@ -81,6 +82,7 @@ const Dashboard = () => {
             <View style={styles.card}>
               <Image source={{uri: weather.icon}} style={styles.weatherIcon} />
               <Text style={styles.temp}>{weather.temp}</Text>
+              <Text style={styles.description}>{weather.city}</Text>
               <Text style={styles.description}>{weather.description}</Text>
               <Text style={styles.info}>Feels like: {weather.feelsLike}</Text>
               <Text style={styles.info}>
